@@ -3,7 +3,3 @@ spring:
     web-application-type: servlet
   application:
     name: subscription-convert
-
-server:
-  servlet:
-    context-path: /sub
