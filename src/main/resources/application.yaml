@@ -1,0 +1,9 @@
+spring:
+  main:
+    web-application-type: servlet
+  application:
+    name: subscription-convert
+
+server:
+  servlet:
+    context-path: /sub

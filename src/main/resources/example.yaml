@@ -1,0 +1,15 @@
+pathMap:
+  a:
+    sourceURL: 'https:'
+    sourceType: meta
+    keepRegex: ~
+  l:
+    sourceURL: 'https://'
+    sourceType: meta
+    deleteRegex: .*自动选择.*|.*全球直连.*|.*节点选择.*|.*全球拦截.*
+    sortRegexArr:
+      - .*距离下次.*
+    renameMap:
+      .*距离下次.*: $name
+      .*REJECT.*: $name
+      .*DIRECT.*: $name
