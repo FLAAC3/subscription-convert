@@ -1,12 +1,10 @@
 # subscription-convert
 
-**1. 项目使用Spring Boot构建，可以在JAR包中的application.yaml文件中自定义监听的根路径，默认为**
+**1. 通过JAR包部署Spring Boot项目（需要使用JDK17）**
 ```
-server:
-  servlet:
-    context-path: /sub
+java -jar subscription-convert-1.0.0.jar -p 8080 -i config.yaml -context-path /sub
 ```
-此配置的意思是监听地址：`http://127.0.0.1:8848/sub`
+-p：指定项目监听端口号（默认8848），-i：外部项目配置文件的位置（默认在JAR同目录下查找），-context-path：指定项目监听根地址
 
 **2. 外部项目配置文件config.yaml**
 ```
@@ -30,9 +28,3 @@ pathMap:
 - `.*香港.*` `.*REJECT.*|.*DIRECT.*` `.*`均为正则表达式，表达式需要**完全匹配**节点的名字
 - 如果节点名字匹配renameMap中多个正则表达式，会优先匹配第一个
 - sourceType目前仅支持meta（clash）的yaml格式的订阅链接，不支持其他协议，不支持解码Base64
-
-**3. 通过JAR包部署项目（需要使用JDK17）**
-```
-java -jar subscription-convert-1.0.0.jar -p 8080 -i config.yaml
-```
--p：指定项目监听端口号（默认8848），-i：外部项目配置文件的位置（默认在JAR同目录下查找）
